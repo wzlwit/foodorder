@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Item management system</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="../../css/footer.css" /> <!--footer link for css-->
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="../../css/header.css" /> <!--header link for css-->
+    <script src="https://kit.fontawesome.com/3f829efc5a.js" crossorigin="anonymous"></script> <!--icons in footer-->
+    <th:block th:replace="fragments/styles :: common"></th:block>
+    <th:block th:replace="fragments/styles :: datatable"></th:block>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div th:replace="fragments/headeradmin :: headeradmin"/>
+        <th:block th:replace="fragments/sidemenu :: menu"></th:block>
+        <div class="right_col" role="main">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Add & Update Item</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+    <form action="#" th:action="@{/saveItem}" th:object="${item}" method="post">
+
+        <input type="hidden" th:field="*{id}"/>
+
+        <input type="text" th:field="*{itemName}" placeholder="Enter Item Name" class="form-control mb-3 col-3"/>
+        <p th:if="${#fields.hasErrors('itemName')}" th:errorclass="error" th:errors="*{itemName}"></p>
+
+        <select th:field="*{category}" class="form-control mb-3 col-3">
+            <option th:each="category: ${itemCategory}" th:value="${category.id}" th:text="${category.categoryName}"></option>
+        </select>
+        <p th:if="${#fields.hasErrors('category')}" th:errorclass="error" th:errors="*{category}"></p>
+
+        <input type="text" th:field="*{itemPrice}" placeholder="Enter Item Price" class="form-control mb-3 col-3">
+        <p th:if="${#fields.hasErrors('itemPrice')}" th:errorclass="error" th:errors="*{itemPrice}"></p>
+
+        <input type="text" th:field="*{description}" placeholder="Enter Item description" class="form-control mb-3 col-3">
+        <p th:if="${#fields.hasErrors('description')}" th:errorclass="error" th:errors="*{description}"></p>
+
+        <select name="active" class="form-control mb-4 col-4">
+            <option th:each="active : ${T(jac.fsd02.foodorder.model.Active).values()}"
+                    th:value="${active}" th:text="${active.toString()}"></option>
+        </select>
+
+        <table border="1">
+
+            <tr>
+                <td>image</td>
+                <td>
+                    <input type="file" name="itemSrc1" id="file"/><br><!--用于选择图片操作-->
+                    <input type="text" name="itemSrc" id="pic"><br><!--用于存储图片数据，.java页面进行取值，写入数据库，命名不能带数字，不然取值会出错-->
+                    <p id="url"><img width="200" height="200" th:src="*{itemSrc}"></p>
+                    <input type="button" value="upload" id="upload"/><br>
+                </td>
+            </tr>
+        </table>
+
+        <label>Showing all the server errors</label>
+        <ul>
+            <li th:each="err :${#fields.errors()}" th:text="${err}" class="error"></li>
+        </ul>
+
+        <button type="submit" class="btn btn-info col-2">add/update Item</button>
+
+    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div th:replace="fragments/footer :: footer"/>-->
+<th:block th:replace="fragments/scripts :: common"></th:block>
+<th:block th:replace="fragments/scripts :: datatable"></th:block>
+<script th:src="@{/js/category/form.js}"></script>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#upload").click(function () {//点击事件--》上传图片
+            //alert("1");
+            //获取表单对象
+            var form = new FormData();
+            //接受表单第一个上传的数据，file命名不能和form里面的名字重复，为传到.java页面的值
+            form.append("file",document.getElementById("file").files[0]);
+            $.ajax({
+                url: "/toPhoto/upload",//后台url
+                type: "POST",//类型为post或get
+                dataType: 'json',//数据返回类型，可以使xml，json等
+                data: form,
+                cache: false,
+                async: false,
+                processData: false,
+                contentType: false,
+                success:function (data) {//接受.java页面的参数
+                    //document.write("1");
+                    alert(JSON.stringify(data));
+                    if (data){
+                        var pic = "/pics/"+data.fileName;
+                        $("#pic").val("/pics/"+data.fileName);
+                        $("#url img").attr("src",pic);//attr() 方法设置或返回被选元素的属性值。
+                    }else {
+                        alert("失败");
+                    }
+                }
+            })
+        })
+    })
+</script>
+</html>

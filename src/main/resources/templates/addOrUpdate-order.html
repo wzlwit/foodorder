@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Order management system</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="../../css/footer.css" /> <!--footer link for css-->
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="../../css/header.css" /> <!--header link for css-->
+    <script src="https://kit.fontawesome.com/3f829efc5a.js" crossorigin="anonymous"></script> <!--icons in footer-->
+    <th:block th:replace="fragments/styles :: common"></th:block>
+    <th:block th:replace="fragments/styles :: datatable"></th:block>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div th:replace="fragments/headeradmin :: headeradmin"/>
+        <th:block th:replace="fragments/sidemenu :: menu"></th:block>
+        <div class="right_col" role="main">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <!--    <h1>City Management System</h1>-->
+                        <!--    <hr>-->
+                        <h2>Update Order</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <form action="#" th:action="@{/saveOrder}" th:object="${order}" method="post">
+
+                            <input type="text" th:field="*{id}" class="form-control mb-3 col-3"/>
+
+                            <input type="text" th:field="*{itemTotalPrice}" class="form-control mb-3 col-3"/>
+                            <!--        <p th:if="${#fields.hasErrors('cityName')}" th:errorclass="error" th:errors="*{cityName}"></p>-->
+
+                            <input type="text" th:field="*{tax}" class="form-control mb-3 col-3"/>
+                            <input type="text" th:field="*{shippingFee}" class="form-control mb-3 col-3"/>
+
+                            <input type="text" th:field="*{orderTotalPrice}" class="form-control mb-3 col-3"/>
+
+                            <!--        <input type="date" th:field="*{orderDate}" class="form-control mb-3 col-3"/>-->
+
+                            <div th:each="status : ${T(jac.fsd02.foodorder.model.OrderStatus).values()}">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" th:field="*{orderStatus}" th:value="${status}" class="custom-control-input">
+                                    <label class="custom-control-label" th:for="${#ids.prev('orderStatus')}" th:text="${status.toString().toLowerCase()}">status</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-info col-2">update Order</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:replace="fragments/scripts :: common"></th:block>
+<th:block th:replace="fragments/scripts :: datatable"></th:block>
+<script th:src="@{/js/category/form.js}"></script>
+</body>
+
+</html>

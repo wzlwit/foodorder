@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eat Now</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css/project.css" rel="stylesheet" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" th:href="@{/css/footerindex.css}" href="../../css/footerindex.css" /> <!--footer link for css-->
+    <link rel="stylesheet" th:href="@{/css/header.css}" href="../../css/header.css" /> <!--header link for css-->
+    <script src="https://kit.fontawesome.com/3f829efc5a.js" crossorigin="anonymous"></script> <!--icons in footer-->
+</head>
+
+<body>
+<main class="container">
+    <div th:replace="fragments/header :: header"/>
+
+<!--<div class="container text-center">-->
+<!--    <h3><a th:href="@{/userIndex}">userIndex</a></h3>-->
+<!--    <h3><a th:href="@{/register}">Register</a></h3>-->
+<!--    <h3><a th:href="@{/login}">Login</a></h3>-->
+<!--</div>-->
+<!--<main class="container">-->
+<!--    <header class="row">-->
+<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--            <div class="container-fluid">-->
+<!--                <img src="images/logoSm.png" alt="logo" class="img-fluid text-center">-->
+<!--                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                    <span class="navbar-toggler-icon"></span>-->
+<!--                </button>-->
+<!--                <div class="text-center" id="navbarSearchContent">-->
+<!--                    <form class="d-flex ">-->
+<!--                        <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">-->
+<!--                        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <div class="text-right" id="navbarSupportedContent">-->
+
+<!--                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link active" aria-current="page" href="#">Cart</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="#">Sign in</a>-->
+<!--                        </li>-->
+
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--    </header>-->
+
+
+
+
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>Welcome to <span>Eat Now</span></h1>
+                    <h2>Providing the best meals for legon students and Beyond!</h2>
+
+                    <div class="btns">
+                        <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+                        <a th:href="@{/userIndex}" class="btn-book animated fadeInUp scrollto">Make an order</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="about-img">
+                            <img src="images/about-0.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                        <p class="fst-italic">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                            <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                            <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                        </ul>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum qui a, ipsam deserunt beatae eum. Nesciunt voluptatibus corrupti quaerat distinctio at officiis illum officia ipsum culpa fugit, veniam, consequatur dolores.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+        <section id="menu" class="menu section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Menu</h2>
+                    <p>Check Our Menu</p>
+                </div>
+
+
+                <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="col-lg-6 menu-item filter-starters">
+                        <img src="images/pisa1.jpeg" class="menu-img" alt="">
+                        <div class="menu-content">
+                            <a href="#">Pizza</a><span>$ 18</span>
+                        </div>
+                        <div class="menu-ingredients">
+                            Lorem, deren, trataro, filede, nerada
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 menu-item filter-specialty">
+                        <img src="images/pisa2.jpeg" class="menu-img" alt="">
+                        <div class="menu-content">
+                            <a href="#">Pizza</a><span>$ 18</span>
+                        </div>
+                        <div class="menu-ingredients">
+                            Lorem, deren, trataro, filede, nerada
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 menu-item filter-starters">
+                        <img src="images/yidalimian1.png" class="menu-img" alt="">
+                        <div class="menu-content">
+                            <a href="#">Spaghetti</a><span>$ 25</span>
+                        </div>
+                        <div class="menu-ingredients">
+                            Lorem, deren, trataro, filede, nerada
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 menu-item filter-salads">
+                        <img src="images/yidalimian2.jpeg" class="menu-img" alt="">
+                        <div class="menu-content">
+                            <a href="#">Spaghetti</a><span>$ 25</span>
+                        </div>
+                        <div class="menu-ingredients">
+                            Lorem, deren, trataro, filede, nerada
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 menu-item filter-specialty">
+                        <img src="images/hanbaobao1.jpeg" class="menu-img" alt="">
+                        <div class="menu-content">
+                            <a href="#">Hamburger</a><span>$ 19</span>
+                        </div>
+                        <div class="menu-ingredients">
+                            Grilled chicken with provolone, artichoke hearts, and roasted red pesto
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 menu-item filter-starters">
+                        <img src="images/hanbaobao2.jpeg" class="menu-img" alt="">
+                        <div class="menu-content">
+                            <a href="#">Hamburger</a><span>$ 19</span>
+                        </div>
+                        <div class="menu-ingredients">
+                            Lorem, deren, trataro, filede, nerada
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 menu-item filter-salads">
+                        <img src="images/lamian1.jpeg" class="menu-img" alt="">
+                        <div class="menu-content">
+                            <a href="#">Ramen</a><span>$ 20</span>
+                        </div>
+                        <div class="menu-ingredients">
+                            Fresh spinach, crisp romaine, tomatoes, and Greek olives
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 menu-item filter-salads">
+                        <img src="images/lamian2.jpeg" class="menu-img" alt="">
+                        <div class="menu-content">
+                            <a href="#">Ramen</a><span>$ 20</span>
+                        </div>
+                        <div class="menu-ingredients">
+                            Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </section><!-- End Menu Section -->
+
+
+<!--        <section class="row bottem">-->
+<!--            <div class="col-sm-12 col-md-4 text-center">-->
+<!--                <div class="thumbnail">-->
+<!--                    <img src="images/logoSm.png" alt="logo" class="img-fluid text-center">-->
+<!--                    <div class="caption">-->
+<!--                        <p>80 RUE DAAS MONTREAL QUEBEC-->
+<!--                            1518 - 200 - 30000-->
+<!--                            contact@eatnow.com</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-12 col-md-4 text-center">-->
+<!--                <div class="thumbnail">-->
+<!--                    <h5>Explore Site</h5>-->
+<!--                    <div class="caption">-->
+<!--                        <a  class="linkbottem" href="#">Home</a>-->
+<!--                    </div>-->
+<!--                    <div class="caption">-->
+<!--                        <a  class="linkbottem" href="#menu">Menu</a>-->
+<!--                    </div>-->
+<!--                    <div class="caption">-->
+<!--                        <a  class="linkbottem" href="#">Order</a>-->
+<!--                    </div>-->
+<!--                    <div class="caption">-->
+<!--                        <a  class="linkbottem" href="#about">About Us</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-12 col-md-4 text-center">-->
+<!--                <div class="thumbnail">-->
+<!--                    <h5>Newsletter</h5>-->
+<!--                    <div class="caption">-->
+<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--        <footer class="row">-->
+<!--            <div class="col-12 text-center">copyright &copy; EAT NOW</div>-->
+<!--        </footer>-->
+        <footer>
+            <div class="container wrap">
+                <div class="row">
+                    <div class="column">
+                        <div class="footer-widget about-widget">
+                            <h2 class="widget-title">About</h2>
+                            <p>Eat now order system</p>
+                            <div class="cards">
+                                <i class="fa-brands fa-cc-mastercard"></i>
+                                <i class="fa-brands fa-cc-paypal"></i>
+                                <!--                            <i class="fa-brands fa-cc-amex"></i>-->
+                                <i class="fa-brands fa-cc-visa"></i>
+                                <i class="fa-brands fa-cc-discover"></i>
+                            </div>
+                            <p><span> <i class="fa-solid fa-lock"></i></span> Secure online payment</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="footer-widget categories-widget">
+                            <h2 class="widget-title">Categories</h2>
+                            <ul>
+                                <li><a href="#">Category1</a></li>
+                                <li><a href="#">Category2</a></li>
+                                <li><a href="#">Category3</a></li>
+                                <li><a href="#">Category4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="footer-widget information-widget">
+                            <h2 class="widget-title">Information</h2>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Shipping&Delivery</a></li>
+                                <li><a href="#">Private Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="footer-widget contact-widget">
+                            <h2 class="widget-title">Contact</h2>
+
+                            <div class="contact-address">
+                                <i class="fa-solid fa-location-dot"></i> Address: John Abbott, Montreal, Canada.
+                            </div>
+
+                            <div class="contact-number">
+                                <i class="fa-solid fa-square-phone"></i> Phone: +1 123456789
+                            </div>
+
+                            <div class="contact-email">
+                                <i class="fa-solid fa-envelope"></i> Email: eatnow@gmail.com
+                            </div>
+
+                            <div class="social-widget">
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p>Copyright @ 2022 All rights reserved | Design made with <i class="fa-solid fa-heart"></i> by WuzheQin zhaolongWang ZhenFang NanZhang TingtingXu</p>
+                </div>
+            </div>
+
+        </footer>
+    </main>
+
+</main>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+
+</body>
+</html>
